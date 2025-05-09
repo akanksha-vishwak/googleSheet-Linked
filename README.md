@@ -19,8 +19,8 @@ Searching for a job can be an overwhelming journey, especially when applying to 
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
-   cd <repository-directory>
+   git clone https://github.com/akanksha-vishwak/googleSheet-Linked.git
+   cd googleSheet-Linked
    ```
 
 2. Install dependencies:
@@ -57,20 +57,6 @@ Searching for a job can be an overwhelming journey, especially when applying to 
    - Save the data to the specified Google Sheet.
    - Print the extracted data in JSON format.
 
-## Dependencies
-- `os`, `json`, `re`, `time`, `datetime` (standard library)
-- `gspread` - Google Sheets API client
-- `google-auth` - Google API authentication
-- `google-generativeai` - Google Gemini API
-- `openai` - OpenAI API client
-- `beautifulsoup4` - HTML parsing
-- `selenium` - Browser automation
-- `python-dotenv` - Environment variable management
-
-Install via:
-```bash
-pip install gspread google-auth google-generativeai openai beautifulsoup4 selenium python-dotenv
-```
 
 ## Configuration
 - **Google Sheets Setup**:
