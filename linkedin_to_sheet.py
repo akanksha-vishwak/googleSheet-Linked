@@ -28,7 +28,13 @@ def connect_sheet():
 
 # --- Load LinkedIn Job Page ---
 def get_job_soup_and_text(url):
+    
     options = Options()
+    # notes for myself: By default, Selenium launches a visible Chrome window unless specified otherwise
+    # added a few lined to make it headless
+    options.add_argument("--headless=new")  # Use new headless mode
+    options.add_argument("--disable-gpu")
+    options.add_argument("--no-sandbox")
     driver = webdriver.Chrome(options=options)
     driver.get(url)
     time.sleep(5)
@@ -76,7 +82,6 @@ def extract_with_gemini(job_text):
     model = genai.GenerativeModel("gemini-2.0-flash-lite")
     prompt = get_extraction_prompt(job_text)
     response = model.generate_content(prompt)
-    print("Gemini response:", response.text.strip())
     return response.text.strip()
 
 # --- Extract Fields with OpenAI (modern SDK) ---
@@ -89,7 +94,6 @@ def extract_with_openai(job_text):
         temperature=0.3
     )
     reply = response.choices[0].message.content.strip()
-    print("OpenAI response:", reply)
     return reply
 
 # --- Save to Google Sheet ---
